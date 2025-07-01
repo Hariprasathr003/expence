@@ -1,0 +1,34 @@
+.cartlist {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.cart {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 250px;
+}
+
+.cart li {
+  list-style: none;
+  margin: 5px 0;
+  align-items: center;
+}
