@@ -1,0 +1,64 @@
+.dashboard {
+  padding: 40px;
+  background: #f1f5f9;
+  color: #333;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.dashLen {
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+}
+.chart {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.section,
+.section1 {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.section h2,
+.section1 h2 {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 15px;
+  border-bottom: 2px;
+  padding-bottom: 5px;
+}
+
+.section ul,
+.section1 ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.section li,
+.section1 li {
+  padding: 10px 0;
+  border-bottom: 1px;
+  font-size: 20px;
+  color: gray;
+}
+
+.section span,
+.section1 span {
+  font-weight: 600;
+  color: #1e293b;
+}

@@ -5,7 +5,7 @@ export const CreateContextForm = createContext();
 
 function ExpencFormContext({ children }) {
   const initialValue = {
-    id: Date.now(),
+    // id: Date.now(),
     amount: "",
     description: "",
     category: "",
@@ -24,12 +24,15 @@ function ExpencFormContext({ children }) {
     e.preventDefault();
     try {
       if (edit !== null) {
-        await service.updateData(formValue, edit);
+        await service.updateData(edit, formValue);
+        reload();
+        alert("update");
       } else {
         await service.createData(formValue);
         alert("create successfully");
         reload();
       }
+      setFormValue(initialValue);
     } catch (err) {
       console.log(err);
     }
@@ -61,6 +64,7 @@ function ExpencFormContext({ children }) {
     try {
       await service.deleteData(curr.id);
       alert("Delete successfully");
+      reload();
     } catch (err) {
       console.log(err);
     }
@@ -69,19 +73,20 @@ function ExpencFormContext({ children }) {
     // setStore(del);
   };
 
-    const reload = async () => {
-      try {
-        const res = await service.getAll();
-        const data=res.data;
-        setStore(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  const reload = async () => {
+    try {
+      const res = await service.getAll();
+      const data = res.data;
+      console.log(data, "data");
+      setStore(data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-    useEffect(() => {
-      reload();
-    }, []);
+  useEffect(() => {
+    reload();
+  }, []);
 
   return (
     <>

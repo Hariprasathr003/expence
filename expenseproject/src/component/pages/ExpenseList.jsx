@@ -16,29 +16,36 @@ import "../../style/Cart.css";
 const ExpenseList = () => {
   const navigate = useNavigate();
   const { store, handleDel, handleEdit } = useContext(CreateContextForm);
-  const [show, setShow] = useState(true);
-//   const [sortDate, setSortDate] = useState("");
   const [search, setSearch] = useState("");
   const [filterData, setFilterData] = useState([]);
 
   useEffect(() => {
     const dateValue = store.sort(
-      (a, b) => Date.parse(b.date) - Date.parse(a.date)
+      (a, b) => Date.parse(a.date) - Date.parse(b.date)
     );
     console.log(dateValue, "datavaleeeeeeeeeeee");
     setFilterData(dateValue);
-  }, []);
+  }, [store]);
 
   useEffect(() => {
     const filter = store.filter((val) =>
       val.category.toLowerCase().includes(search.toLowerCase())
     );
     setFilterData(filter);
-  }, []);
+  }, [search, store]);
+
+  const categoryColors = {
+    food: "green",
+    transportation: "blue",
+    entertainment: "red",
+    shopping: "purple",
+    bills: "gray",
+    health: "#2596be",
+    other: "#fddda0",
+  };
 
   return (
     <>
-      <label htmlFor="">Search</label>
       <input
         type="text"
         placeholder="serach category"
@@ -58,10 +65,16 @@ const ExpenseList = () => {
                   <span>Description: </span>
                   {val.description}
                 </li>
-                <li>
-                  <span>Category: </span>
+                <span>Category: </span>
+                <span
+                  style={{
+                    backgroundColor: categoryColors[val.category],
+                    color: "white",
+                  }}
+                >
                   {val.category}
-                </li>
+                </span>
+
                 <li>
                   <span>Date: </span> {val.date}
                 </li>
