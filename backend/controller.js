@@ -1,7 +1,7 @@
 const db = require("./mysqlconnect");
 
 const getAll = (req, res) => {
-  db.query("select * from expencetable", (err, result) => {
+  db.query("select * from expensetable", (err, result) => {
     if (err) {
       console.log(err);
     }
@@ -12,7 +12,7 @@ const getAll = (req, res) => {
 const createData = (req, res) => {
   const { amount, description, category, date } = req.body;
   const sql =
-    "insert into expencetable (amount,description,category,date)  values (?,?,?,?)";
+    "insert into expensetable (amount,description,category,date)  values (?,?,?,?)";
   db.query(sql, [amount, description, category, date], (err, result) => {
     if (err) {
       console.log(err);
@@ -25,7 +25,7 @@ const updateData = (req, res) => {
   const { amount, description, category, date } = req.body;
   const { id } = req.params;
   const sql =
-    "update expencetable set  amount=?, description=?, category=?, date=? where id=? ";
+    "update expensetable set  amount=?, description=?, category=?, date=? where id=? ";
   db.query(sql, [amount, description, category, date, id], (err, result) => {
     if (err) {
       console.log(err);
@@ -36,7 +36,7 @@ const updateData = (req, res) => {
 
 const deleteData = (req, res) => {
   const { id } = req.params;
-  const sql = "delete from expencetable where id=?";
+  const sql = "delete from expensetable where id=?";
   db.query(sql, [id], (err, result) => {
     if (err) {
       console.log(err);
