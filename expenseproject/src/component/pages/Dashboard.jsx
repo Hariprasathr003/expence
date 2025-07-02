@@ -13,12 +13,25 @@ const Dashboard = () => {
 
   const allTimeTotal = store.reduce((acc, val) => acc + Number(val.amount), 0);
 
+  const today = new Date();
+  const month = today.getMonth();
+
+  const monthCalculate = store.filter((val) => {
+    const value = new Date(val.date);
+    return value.getMonth() === month;
+  });
+
+  const monthTotal = monthCalculate.reduce(
+    (acc, val) => acc + Number(val.amount),
+    0
+  );
+
   const recentActivity = store
     .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
     .slice(0, 5);
 
   const categoryBreak = store.reduce((acc, val) => {
-    const category = val.category.toLowerCase();
+    const category = val.category;
     acc[category] = (acc[category] || 0) + Number(val.amount);
     return acc;
   }, {});
@@ -29,10 +42,15 @@ const Dashboard = () => {
     <>
       <div className="dashboard">
         <h1 className="title">Dashboard</h1>
-        <h1 className="dashLen">Types of Spending Category: {store.length}</h1>
-        <h1 className="dashLen">All-Time Spending Expense: ₹{allTimeTotal}</h1>
+
         <div className="chart">
-          <div className="section">
+          <div className="section1">
+            <h1 className="title">Total Spending</h1>
+            <h4 className="">Total Spending Carts: {store.length}</h4>
+            <h4 className="">All-Time Spending Expense: ₹{allTimeTotal}</h4>
+            <h4 className="">MonthTotal Spending Expense: ₹{monthTotal}</h4>
+          </div>
+          <div className="section2">
             <Doughnut
               data={{
                 labels: Object.keys(categoryBreak),
@@ -64,7 +82,7 @@ const Dashboard = () => {
               })}
             </ul> */}
           </div>
-          <div className="section1">
+          <div className="section3">
             <Bar
               data={{
                 labels: recentActivity.map((val) => val.date),
@@ -88,6 +106,7 @@ const Dashboard = () => {
               </li>
             ))}
           </ul> */}
+          
           </div>
         </div>
       </div>

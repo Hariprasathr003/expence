@@ -1,13 +1,14 @@
 .cartlist {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   gap: 20px;
-  padding: 20px;
+  padding: 24px;
 }
 
 button {
   padding: 8px 12px;
   background-color: #333;
+  text-align: center;
   color: #fff;
   border: none;
   margin: 5px;

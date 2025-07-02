@@ -20,13 +20,17 @@
 }
 .chart {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   gap: 30px;
   margin-top: 40px;
 }
+.section1 h4 {
+  font-size: 20px;
+}
 
-.section,
-.section1 {
+.section1,
+.section2,
+.section3 {
   max-width: 700px;
   margin: 30px auto;
   padding: 25px;
