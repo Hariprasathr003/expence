@@ -1,12 +1,8 @@
 import React, { useContext } from "react";
-import { CreateContextForm } from "../contextpage/ExpencFormContext";
+import { CreateContextForm } from "../contextpage/ExpenseFormContext";
 import "../../style/Dashboard.css";
 import { Chart } from "chart.js/auto";
 import { Doughnut, Bar } from "react-chartjs-2";
-
-// Total Spending: Current month, week, and all-time
-// Category Breakdown: Show spending by category
-// Recent Activity: Last 5-10 transactions
 
 const Dashboard = () => {
   const { store } = useContext(CreateContextForm);
@@ -71,16 +67,6 @@ const Dashboard = () => {
                 ],
               }}
             />
-            {/* <h2>Spending by Category</h2>
-            <ul>
-              {Object.entries(categoryBreak).map((category, amount) => {
-                return (
-                  <li key={category}>
-                    <span>{category}</span>: ₹{amount}
-                  </li>
-                );
-              })}
-            </ul> */}
           </div>
           <div className="section3">
             <Bar
@@ -91,22 +77,10 @@ const Dashboard = () => {
                     label: "Last 5 Transactions",
                     data: recentActivity.map((val) => val.amount),
                     backgroundColor: "#FF6384",
-                    borderWidth: 1,
                   },
                 ],
               }}
             />
-
-            {/* <h2>Recent Activity</h2>
-          <ul>
-            {recentActivity.map((val) => (
-              <li key={val.id}>
-                <span>{val.date}</span> - ₹{val.amount} - {val.description} (
-                {val.category})
-              </li>
-            ))}
-          </ul> */}
-          
           </div>
         </div>
       </div>

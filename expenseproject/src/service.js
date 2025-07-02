@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const dataFetch = axios.create({
-  baseURL: "http://localhost:4000/api/expence/",
+  baseURL: "http://localhost:4000/api/expense/",
   headers: { "Content-Type": "application/json" },
 });
 

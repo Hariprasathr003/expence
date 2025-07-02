@@ -11,8 +11,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Rootlayout />}>
             <Route index element={<Dashboard />} />
-            <Route path="expenceform" element={<ExpenseForm />} />
-            <Route path="expencelist" element={<ExpenseList />} />
+            <Route path="expenseform" element={<ExpenseForm />} />
+            <Route path="expenselist" element={<ExpenseList />} />
           </Route>
         </Routes>
       </BrowserRouter>

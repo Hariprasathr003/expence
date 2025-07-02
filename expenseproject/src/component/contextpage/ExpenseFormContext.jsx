@@ -3,7 +3,7 @@ import service from "../../service";
 
 export const CreateContextForm = createContext();
 
-function ExpencFormContext({ children }) {
+function ExpensFormContext({ children }) {
   const initialValue = {
     // id: Date.now(),
     amount: "",
@@ -109,4 +109,4 @@ function ExpencFormContext({ children }) {
   );
 }
 
-export default ExpencFormContext;
+export default ExpensFormContext;

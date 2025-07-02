@@ -1,17 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { CreateContextForm } from "../contextpage/ExpencFormContext";
 import { useNavigate } from "react-router-dom";
 import "../../style/Cart.css";
-// Layout: Card-based or table format
-// Each Entry Shows:Amount with currency formatting
-// Description
-// Category with color-coded badge
-// Date in readable format
-// Delete button
-// Features:Sort by date (newest first by default)
-// Filter by category
-// Search by description
-// Edit existing expenses (bonus feature)
+import { CreateContextForm } from "../contextpage/ExpenseFormContext";
 
 const ExpenseList = () => {
   const navigate = useNavigate();
@@ -82,7 +72,7 @@ const ExpenseList = () => {
                 <button
                   onClick={() => {
                     handleEdit(val);
-                    navigate("/expenceform");
+                    navigate("/expenseform");
                   }}
                 >
                   Edit

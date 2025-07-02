@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-import { CreateContextForm } from "../contextpage/ExpencFormContext";
+import { CreateContextForm } from "../contextpage/ExpenseFormContext";
 import "../../style/Form.css";
-
-// Input Fields:Amount (number input with currency symbol)
-// Description (text input, e.g., "Coffee at Starbucks")
-// Category (dropdown: Food, Transportation, Entertainment, Shopping, Bills, Health, Other)
-// Date (date picker, defaults to today)
-// Validation:Amount must be positive number
-// Description is required (max 100 characters)
-// Category must be selected
 
 const ExpenseForm = () => {
   const { handleSubmit, formValue, handleChange } =
