@@ -6,6 +6,9 @@ import { CreateContextForm } from "../contextpage/ExpenseFormContext";
 const ExpenseList = () => {
   const navigate = useNavigate();
   const { store, handleDel, handleEdit } = useContext(CreateContextForm);
+  const [show, setShow] = useState(true);
+
+  const [model, setModel] = useState(true);
   const [search, setSearch] = useState("");
   const [filterData, setFilterData] = useState([]);
 
@@ -42,6 +45,52 @@ const ExpenseList = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+
+      <button onClick={() => setModel(!model)}>Model</button>
+      {!model && (
+        <div className="modal">
+          <div className="overlay"></div>
+          <div className="modalContent">
+            <h2>Hello Modal</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore
+              animi laudantium voluptate at consectetur officiis enim! Ipsa,
+              nam? Pariatur quisquam labore eum id consequuntur nostrum non
+              voluptatem commodi odio similique!
+            </p>
+            <button className="closeModal" onClick={() => setModel(!model)}>
+              CLOSE
+            </button>
+          </div>
+        </div>
+      )}
+
+      <button onClick={() => setShow(!show)}>Table View</button>
+
+      {!show && (
+        <div className="tableview">
+          <table>
+            <thead>
+              <tr>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filterData.map((val, index) => (
+                <tr key={index}>
+                  <td>{val.amount}</td>
+                  <td>{val.description}</td>
+                  <td>{val.category}</td>
+                  <td>{val.date}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       <div className="cartlist">
         {filterData.map((val) => {

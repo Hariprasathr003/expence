@@ -7,6 +7,7 @@ import ExpenseList from "./component/pages/ExpenseList";
 function App() {
   return (
     <>
+    
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Rootlayout />}>
